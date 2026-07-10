@@ -1,0 +1,113 @@
+prSections:
+    - title: My Pull Requests
+      filters: is:open author:@me
+    - title: Needs My Review
+      filters: is:open review-requested:@me
+    - title: Involved
+      filters: is:open involves:@me -author:@me
+issuesSections:
+    - title: My Issues
+      filters: is:open author:@me
+    - title: Assigned
+      filters: is:open assignee:@me
+    - title: Involved
+      filters: is:open involves:@me -author:@me
+notificationsSections:
+    - title: All
+      filters: ""
+    - title: Created
+      filters: reason:author
+    - title: Participating
+      filters: reason:participating
+    - title: Mentioned
+      filters: reason:mention
+    - title: Review Requested
+      filters: reason:review-requested
+    - title: Assigned
+      filters: reason:assign
+    - title: Subscribed
+      filters: reason:subscribed
+    - title: Team Mentioned
+      filters: reason:team-mention
+repo:
+    branchesRefetchIntervalSeconds: 30
+    prsRefetchIntervalSeconds: 60
+defaults:
+    preview:
+        open: true
+        width: 0.45
+        height: 0.6
+        position: auto
+    prsLimit: 20
+    prApproveComment: LGTM
+    issuesLimit: 20
+    notificationsLimit: 20
+    view: prs
+    layout:
+        prs:
+            updatedAt:
+                width: 5
+            createdAt:
+                width: 5
+            repo:
+                width: 20
+            author:
+                width: 15
+            authorIcon:
+                hidden: false
+            labels:
+                width: 22
+                hidden: true
+            assignees:
+                width: 20
+                hidden: true
+            base:
+                width: 15
+                hidden: true
+            lines:
+                width: 15
+        issues:
+            updatedAt:
+                width: 5
+            createdAt:
+                width: 5
+            repo:
+                width: 15
+            creator:
+                width: 10
+            creatorIcon:
+                hidden: false
+            assignees:
+                width: 20
+                hidden: true
+    refetchIntervalMinutes: 30
+keybindings:
+    prs:
+        - key: d
+          name: diffnav
+          command: >
+              GH_PAGER=cat gh pr diff --repo {{.RepoName}} {{.PrNumber}} | /home/luizguilherme/go/bin/diffnav
+repoPaths:
+    GarantiaBR/api-collections: /home/luizguilherme/Documentos/GitHub/elevential/api-collections
+    GarantiaBR/atom-back-end: /home/luizguilherme/Documentos/GitHub/elevential/atom-back-end
+    GarantiaBR/atom-front-end: /home/luizguilherme/Documentos/GitHub/elevential/atom-front-end
+    Elevential/elevential-congressos-backend: /home/luizguilherme/Documentos/GitHub/elevential/elevential-congressos-backend
+    Elevential/elevential-congressos-frontend: /home/luizguilherme/Documentos/GitHub/elevential/elevential-congressos-frontend
+    GarantiaBR/engine-billing: /home/luizguilherme/Documentos/GitHub/elevential/engine-billing
+    GarantiaBR/engine-integracao: /home/luizguilherme/Documentos/GitHub/elevential/engine-integracao
+    GarantiaBR/experimento_diogo: /home/luizguilherme/Documentos/GitHub/elevential/experimento_diogo
+    GarantiaBR/garantia_ia: /home/luizguilherme/Documentos/GitHub/elevential/garantia_ia
+    GarantiaBR/notifier: /home/luizguilherme/Documentos/GitHub/elevential/notifier
+    GarantiaBR/rpa-engine: /home/luizguilherme/Documentos/GitHub/elevential/rpa-engine
+theme:
+    ui:
+        sectionsShowCount: true
+        table:
+            showSeparator: true
+            compact: false
+pager:
+    diff: /home/luizguilherme/go/bin/diffnav
+confirmQuit: false
+showAuthorIcons: true
+smartFilteringAtLaunch: true
+includeReadNotifications: true
